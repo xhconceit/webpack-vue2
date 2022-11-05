@@ -68,6 +68,26 @@
     app.$mount('#app')
     ```
 
+    安装 html-webpack-plugin 自动将文件引入 index.html
+
+    ```shell
+    yarn add -D html-webpack-plugin
+    ```
+
+    使用 html-webpack-plugin 
+
+    ```javascript
+    const HtmlWebpackPlugin = require('html-webpack-plugin')
+    const path = require('path')
+    module.exports = {
+        plugins: [
+            new HtmlWebpackPlugin({
+                template: path.resolve(__dirname, 'public/index.html'),
+            })
+        ]
+    }
+    ```
+
     在命令行启动
 
     ```shell
@@ -75,5 +95,35 @@
     ```
 
 
+4. 启动 vue 模版
+
+    安装 vue-loader 解析 vue 模版，安装 css-loader 解析样式。
+
+    ```shell
+    yarn add -D vue-loader css-loader
+    ```
+
+    在 webpack 配置中设置 vue loader ，在
+
+    ```javascript
+    const { VueLoaderPlugin } = require('vue-loader')
+    module.exports = {
+        module:{
+            rules: [
+                {
+                    test: /\.vue$/,
+                    use: ['vue-loader']
+                },
+                {
+                    test: /\.css$/,
+                    use: ['vue-style-loader', 'css-loader']
+                }
+            ]
+        },
+        plugins: [
+            new VueLoaderPlugin()
+        ]
+    }
+    ```
 
 
