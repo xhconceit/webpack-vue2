@@ -5,3 +5,48 @@
     ```shell
     yarn add -D webpack webpack-cli webpack-dev-server
     ```
+
+2. 配置 webpack
+
+    1. 安装 webapck-dev-server
+        
+        ```shell
+        yarn add -D  webapck-dev-server
+        ```
+    2. 新建 webpack.config.js ，配置 webpack 。
+       
+       ```javascript
+        const path = require('path')
+        const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+        module.exports = {
+            mode: 'development', // 开发模式
+            entry: path.resolve(__dirname,'src/index.js'),// 人口文件
+            devServer: { // 开启服务器文件变化自动刷新
+                open: true,
+                port: 9000
+            },
+            plugins: [
+                new HtmlWebpackPlugin({
+                    template: path.resolve(__dirname,'public/index.html'), // index.html 文件
+                })
+            ]
+        }
+        ```
+
+    3. 配置 package.json ，设置 scripts 
+
+        ```json
+        {
+            "scripts": {
+                "dev": "webpack-dev-server"
+            }
+        }
+        ```
+
+        运行项目
+
+        ```shell
+        yarn dev
+        ```
+
