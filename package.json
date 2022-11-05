@@ -11,5 +11,8 @@
   },
   "scripts": {
     "dev": "webpack-dev-server"
+  },
+  "dependencies": {
+    "vue": "2"
   }
 }

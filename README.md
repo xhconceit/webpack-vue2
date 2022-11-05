@@ -50,3 +50,30 @@
         yarn dev
         ```
 
+3. 安装 vue
+
+    ```shell
+    yarn add vue@2
+    ```
+
+    在 index.js 文件中启动 vue 。
+
+    ```javascript
+    import Vue from "vue"
+    const app = new Vue({
+        render: h => {
+            return h('div', {}, 'hello Vue')
+        }
+    })
+    app.$mount('#app')
+    ```
+
+    在命令行启动
+
+    ```shell
+    yarn dev
+    ```
+
+
+
+
