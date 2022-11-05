@@ -126,4 +126,30 @@
     }
     ```
 
+5. 处理静态文件
+
+    由于 webpack5 内置资源模块，不需要使用 file-loader url-loader 对静态文件操作。
+
+    ```javascript
+    module.exports = {
+        module: {
+            rules: [
+                {
+                    test: /\.(jpeg|svg|png|jpg|gif)$/i,
+                    type: 'asset',
+                    // 设置文件超过 4kb 导出文件本返回 url ，不超过则返回 data url
+                    parser: {
+                        dataUrlCondition: {
+                            maxSize: 4 * 1024
+                        }
+                    },
+                    generator: {
+                        filename: 'images/[name]-[hash:4].[ext]'
+                    }
+                },
+            ]
+        }
+    }
+    ```
+
 
