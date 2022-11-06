@@ -201,3 +201,46 @@
     }
     ```
 
+
+8. postcss
+
+    安装 postcss-loader postcss-preset-env 解析 css 。
+
+    ```shell
+    yarn add -D postcss-loader postcss-preset-env
+    ```
+
+    配置 webpack
+
+    ```javascript
+    module.exports = {
+        module: {
+            rules:[
+                {
+                    test: /\.css$/,
+                    use: ['postcss-loader']
+                }
+            ]
+        }
+    }
+    ```
+
+    新建 postcss.config.js 配置 postcss 。
+
+    ```javascript
+    module.exports = {
+        map: false,// 是否显示 source map
+        plugins: {
+            "postcss-preset-env": {// postcss-preset-env  postcss 预设了常用插件，如：autoprefixer 自动添加前缀 等
+            }
+        }
+    }
+    ```
+
+    新建 .browserslistrc 配置兼容浏览器。
+
+    ```browserslistrc
+    > 1%
+    last 2 version
+    ```
+

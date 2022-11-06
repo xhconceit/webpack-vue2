@@ -13,28 +13,32 @@ module.exports = {
     },
     module: {
         rules: [
-           // vue 模版
+            // vue 模版
             {
                 test: /\.vue$/,
                 use: ['vue-loader']
             },
             // css 
             {
-                test: /\.css$/,
+                test: /\.(css|less|sass|scss)$/,
                 use: ['vue-style-loader', 'css-loader']
             },
 
-
+            // postcss
+            {
+                test: /\.(css|less|sass|scss)$/,
+                use: ['postcss-loader']
+            },
 
             // less
             {
                 test: /\.less$/,
-                use:['vue-style-loader', 'css-loader','less-loader']
+                use: ['less-loader']
             },
             // sass
             {
-                test: /\.sass$/,
-                use:['vue-style-loader', 'css-loader','sass-loader']
+                test: /\.(sass|scss)$/,
+                use: ['sass-loader']
             },
 
             // 静态文件
@@ -50,7 +54,7 @@ module.exports = {
                 generator: {
                     filename: 'images/[name]-[hash:4].[ext]'
                 }
-              },
+            },
         ]
     },
     plugins: [

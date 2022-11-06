@@ -7,13 +7,14 @@ export default {
 
 }
 </script>
-<style lang="sass" scoped>
-
-div{
-    img{
-        width: 100px;
-    }
+<style lang="scss" scoped>
+div {
     color: wheat;
     background-image: url(./images/webpack.svg);
+    transform: translate(0, 0);
+
+    img {
+        width: 100px;
+    }
 }
 </style>
