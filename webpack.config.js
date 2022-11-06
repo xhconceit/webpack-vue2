@@ -31,6 +31,11 @@ module.exports = {
                 test: /\.less$/,
                 use:['vue-style-loader', 'css-loader','less-loader']
             },
+            // sass
+            {
+                test: /\.sass$/,
+                use:['vue-style-loader', 'css-loader','sass-loader']
+            },
 
             // 静态文件
             {

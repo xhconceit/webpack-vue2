@@ -153,7 +153,7 @@
     ```
 
 
-4. less
+6. less
 
     安装 less less-loader 解析 less 。
 
@@ -177,4 +177,27 @@
     ```
 
 
+
+7. sass
+
+    安装 sass sass-loader 解析 sass 。
+
+    ```shell
+    yarn add -D sass sass-loader
+    ```
+
+    webapck 配置
+
+    ```javascript
+    module.exports = {
+        module: {
+            rules: [
+                {
+                    test: /\.sass$/,
+                    use:['vue-style-loader', 'css-loader','sass-loader']
+                },
+            ]
+        }
+    }
+    ```
 
