@@ -57,6 +57,13 @@ module.exports = {
                     filename: 'images/[name]-[hash:4].[ext]'
                 }
             },
+
+            // js
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: 'babel-loader'
+            }
         ]
     },
     plugins: [

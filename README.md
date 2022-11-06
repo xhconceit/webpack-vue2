@@ -270,3 +270,50 @@
         ]
     }
     ```
+
+
+10. babel 代码降级
+
+    安装 babel-loader @babel/core @babel/preset-env core-js regenerator-runtime 降级解析 js 。
+
+    ```shell
+    yarn add -D babel-loader @babel/core @babel/preset-env 
+    # babel-loader : js 代码转换
+    # @babel/core : babel 核心
+    # @babel/preset-env : babel 预设
+    yarn add core-js regenerator-runtime
+    # core-js : 实现 js 新语法的降级
+    # regenerator-runtime : 对编译/转译async函数的运行时支持。
+    ```
+
+    配置 webpack
+
+    ```javascript
+    module.exports = {
+        moduel: {
+            rules: [
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    use: 'babel-loader'
+                }
+            ]
+        }
+    }
+    ```
+
+    新建 .babelrc 配置 babel
+
+    ```babel
+    {
+        "presets": [
+            [
+                "@babel/preset-env",
+                {
+                    "useBuiltIns": "usage",// 按需构建 api 
+                    "corejs": 3, // 使用 corejs 的版本
+                }
+            ]
+        ]
+    }
+    ```

@@ -1,0 +1,11 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "useBuiltIns": "usage",// 按需构建 api 
+                "corejs": 3, // 使用 corejs 的版本
+            }
+        ]
+    ]
+}
