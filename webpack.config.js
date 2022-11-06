@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 // vue 模块插件
 const { VueLoaderPlugin } = require('vue-loader')
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 module.exports = {
     mode: 'development',
     entry: path.resolve(__dirname, 'src/index.js'),
@@ -21,7 +23,7 @@ module.exports = {
             // css 
             {
                 test: /\.(css|less|sass|scss)$/,
-                use: ['vue-style-loader', 'css-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
             },
 
             // postcss
@@ -61,6 +63,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public/index.html'),
         }),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new MiniCssExtractPlugin()
     ]
 }

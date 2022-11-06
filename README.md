@@ -244,3 +244,29 @@
     last 2 version
     ```
 
+9. 抽离 css 文件
+
+    安装 mini-css-extract-plugin 插件抽离 css 。
+
+    ```shell
+    yarn add -D mini-css-extract-plugin
+    ```
+
+    配置 webpack
+
+    ```javascript
+    const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+    module.exports = {
+        module: {
+            rules: [
+                {
+                    test: /\.css$/,
+                    use: [MiniCssExtractPlugin.loader, 'css-loader']
+                }
+            ]
+        },
+        plugins: [
+            new MiniCssExtractPlugin()
+        ]
+    }
+    ```
