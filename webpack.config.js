@@ -8,21 +8,31 @@ module.exports = {
     mode: 'development',
     entry: path.resolve(__dirname, 'src/index.js'),
     devServer: {
-        open: true,
+        open: false,
         port: 9000
     },
     module: {
         rules: [
-           
+           // vue 模版
             {
                 test: /\.vue$/,
                 use: ['vue-loader']
             },
+            // css 
             {
                 test: /\.css$/,
                 use: ['vue-style-loader', 'css-loader']
             },
 
+
+
+            // less
+            {
+                test: /\.less$/,
+                use:['vue-style-loader', 'css-loader','less-loader']
+            },
+
+            // 静态文件
             {
                 test: /\.(jpeg|svg|png|jpg|gif)$/i,
                 type: 'asset',

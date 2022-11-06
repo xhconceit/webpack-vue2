@@ -153,3 +153,28 @@
     ```
 
 
+4. less
+
+    安装 less less-loader 解析 less 。
+
+    ```shell
+    yarn add -D less less-loader
+    ```
+
+    webpack 配置
+
+    ```javascript
+    module.exports = {
+        module: {
+            rules: [
+                {
+                    test: /\.less$/,
+                    use: ['vue-style-loader', 'css-loader','less-loader']
+                }
+            ]
+        }
+    }
+    ```
+
+
+

@@ -7,8 +7,13 @@ export default {
 
 }
 </script>
-<style>
+<style lang="less" scoped>
+
 div{
+    img{
+        width: 100px;
+    }
+    color: wheat;
     background-image: url(./images/webpack.svg);
 }
 </style>
