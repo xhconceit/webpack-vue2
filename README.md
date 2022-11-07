@@ -495,3 +495,37 @@
     ```shell
     yarn build
     ```
+
+
+13. 库
+
+    1. loader
+       1. vue-loader - 解析 vue 模版
+       2. vue-style-loader - 解析 vue style 
+       3. css-loader - 解析 css
+       4. postcss-loader - 转换 css 兼容
+       5. less-loader - 解析 less
+       6. sass-loader - 解析 scss sass
+       7. babel-loader - js 降级
+       8. cache-loader - 缓存 loader 解析结果提高开发速度
+       9. thread-loader - 多线程解析 loader
+       10. MiniCssExtractPlugin.loader - 提出 css
+
+    2. plugin
+       1. html-webpack-plugin - 将打包后的文件引入到 html 中
+       2. VueLoaderPlugin - 解析 vue 模版
+       3. MiniCssExtractPlugin - 提取 css 到单独文件
+       4. CleanWebpackPlugin - 清除上一次打包的文件
+       5. TerserPlugin - 压缩 js
+       6. OptimizeCssAssetsWebpackPlugin - 压缩 css
+       7. CompressionWebpackPlugin - 将文件进行 gzip 压缩
+
+
+    3. 其他
+       1. @babel/core
+       2. @babel/preset-env
+       3. less
+       4. sass
+       5. postcss-preset-env
+       6. webpack-dev-server
+

@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 // vue 模块插件
 const { VueLoaderPlugin } = require('vue-loader')
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
     mode: 'development',
@@ -73,6 +72,5 @@ module.exports = {
             template: path.resolve(__dirname, 'public/index.html'),
         }),
         new VueLoaderPlugin(),// 解析 vue
-        new MiniCssExtractPlugin(),// 压缩css
     ]
 }
