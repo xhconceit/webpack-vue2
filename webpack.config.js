@@ -25,7 +25,7 @@ module.exports = {
             // css 
             {
                 test: /\.(css|less|sass|scss)$/,
-                use: [MiniCssExtractPlugin.loader, 'cache-loader','css-loader']
+                use: ['cache-loader','vue-style-loader', 'css-loader']
             },
 
             // postcss
@@ -69,10 +69,10 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin({ 
             template: path.resolve(__dirname, 'public/index.html'),
         }),
-        new VueLoaderPlugin(),
-        new MiniCssExtractPlugin()
+        new VueLoaderPlugin(),// 解析 vue
+        new MiniCssExtractPlugin(),// 压缩css
     ]
 }

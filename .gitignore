@@ -5,3 +5,4 @@ dist/*
 dist
 yarn-error.log
 yarn.lock
+.cache
