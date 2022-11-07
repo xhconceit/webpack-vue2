@@ -1,9 +1,11 @@
 <template>
-    <div>Hello {{msg}}; <Com /></div>
+    <div>Hello world s  s s{{msg}}; <Com />
+    <div></div></div>
 </template>
 
 <script>
 import Com from './Com.vue'
+
 export default {
     data() {
         return {

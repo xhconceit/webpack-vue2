@@ -11,19 +11,21 @@ module.exports = {
     entry: path.resolve(__dirname, 'src/index.js'),
     devServer: {
         open: false,
-        port: 9000
+        port: 9000,
+        hot: true,
+
     },
     module: {
         rules: [
             // vue 模版
             {
                 test: /\.vue$/,
-                use: ['vue-loader']
+                use: ['cache-loader', 'vue-loader']
             },
             // css 
             {
                 test: /\.(css|less|sass|scss)$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader']
+                use: [MiniCssExtractPlugin.loader, 'cache-loader','css-loader']
             },
 
             // postcss
@@ -62,7 +64,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: 'babel-loader'
+                use: ['cache-loader', 'thread-loader','babel-loader']
             }
         ]
     },

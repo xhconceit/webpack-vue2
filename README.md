@@ -100,7 +100,7 @@
     安装 vue-loader 解析 vue 模版，安装 css-loader 解析样式。
 
     ```shell
-    yarn add -D vue-loader css-loader
+    yarn add -D vue-loader@15 css-loader
     ```
 
     在 webpack 配置中设置 vue loader ，在
@@ -317,3 +317,72 @@
         ]
     }
     ```
+
+11. 开发性能优化
+
+    安装 cache-loader 缓存 loader 结果。
+
+    ```shell
+    yarn add -D cache-loader
+    ```
+
+    配置 webpack
+
+    ```javascript
+    module.exports = {
+        module: {
+            rules: [
+                {
+                    test: /\.js/,
+                    use: ['cache-loader', 'babel-loader']
+                }
+            ]
+        }
+    }
+    ```
+
+    安装 thread-loader 开启多线程。
+
+    ```shell
+    yarn add -D thread-loader
+    ```
+
+    配置 webpack
+    
+    ```javascript
+    module.exports = {
+        module: {
+            rules:[
+                {
+                    test: /\.js$/,
+                    use: ['thread-loader', 'babel-loader']
+                }
+            ]
+        }
+    }
+    ```
+
+    开启热更新
+
+    ```javascript
+    const webpack = require('webpack')
+    module.exports = {
+        devServer: {
+            hot: true
+        },
+        plugins: [
+            // 可选
+            new webpack.HotModuleReplacementPlugin()
+        ]
+    }
+    ```
+
+    在人口文件中开启热更新
+
+    ```javascript
+    if(module.hot) {
+        module.hot.accept()
+    }
+    ```
+
+    
